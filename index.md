@@ -39,6 +39,7 @@ This lab includes the following exercises:
 
 ## Prerequisites
 
+
 - Basic familiarity with the **Azure portal** (resource groups, search, blades).
 - Comfort using a browser-based lab environment and switching between tabs/windows.
 - Basic Linux navigation concepts (you'll use provided commands and credentials).
@@ -46,3 +47,55 @@ This lab includes the following exercises:
   - Discovery and assessment
   - Cutover and validation
   - Rollback and operational readiness
+
+## Lab set-up prerequisites
+The exercises in this repository were designed for a pre-configured hosted lab environment. If you're following along in your own environment, you'll want to make sure you've setup and configured these resources before getting started.
+
+#### On-prem / lab environment
+- Lab VM/jump box with Azure access  
+- Lab VM/jump box also serving as the Azure Migrate appliance
+- Azure Migrate appliance preinstalled on the Windows jump box
+- Azure Migrate appliance deployed using the PowerShell option
+- Azure Migrate Appliance Configuration Manager installed on the jump box desktop
+- Hyper-V host named hyperv-01
+- Desktop RDP shortcut: HyperV-01 Host.rdp
+- On-prem Linux VM: Airsonic-Frontend
+- On-prem Linux VM: Airsonic-Backend
+- Working Airsonic application already installed and running
+- Airsonic reachable at http://airsonic-frontend:8080/airsonic
+- Working PostgreSQL source server already installed and running
+- PostgreSQL source reachable at 192.168.1.165:5432
+- Existing PostgreSQL database named airsonic
+- Airsonic config file present at /var/airsonic/airsonic.properties
+- Airsonic already configured to use the source PostgreSQL database
+- Desktop script present: HV-AutomateClientVPNSconnect.ps1
+- PuTTY installed on the desktop
+- Hyper-V host must allow installation of AzureSiteRecoveryProvider.exe
+- Source environment must be discoverable by Azure Migrate as:
+    - Airsonic-Frontend
+    - Airsonic-Backend
+    - web app airsonic
+    - database workload airsonic-backend
+- Hyper-V admin credentials working:
+    - administrator / Passw0rd!
+- Linux credentials working:
+    - skilladmin / PurpleFrog3109!
+- PostgreSQL credentials working:
+    - admin / Password~1
+- Airsonic app credentials working:  
+    - admin / admin
+- DNS/name resolution working for:
+    - hyperv-01
+    - airsonic-frontend
+
+#### Azure
+- Azure subscription and learner credentials
+- Existing Azure resource group: AZMigrateRG
+- Existing Azure virtual network: migrate@lab.LabInstance.Id
+- Existing subnet: flex_server_subnet
+- Existing storage account: sto@lab.LabInstance.Id
+- Hybrid connectivity/VPN path between lab environment and Azure
+- Azure RBAC/policy must allow Azure Migrate replication and migration resources 
+
+{: .note }
+> **Tip:** If any of these areas are new to you, we recommend reviewing the relevant Microsoft Learn modules before diving into the exercises. The hosted lab version of this content handles all of this setup for you automatically.
